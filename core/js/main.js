@@ -12,6 +12,8 @@ document.onreadystatechange = function () {
   }
 }
 
+window.onbeforeunload = function(){ window.scrollTo(0,0); }
+
 //Smooth Scrolling//
 if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
 window.onmousewheel = document.onmousewheel = wheel;

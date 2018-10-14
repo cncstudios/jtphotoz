@@ -24,12 +24,12 @@ h3 {
     font-family: "Century-Gothic", Helvetica, Arial, sans-serif;
 }
 span {
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-left: 1em;
     margin-right: 1em;
-    margin-bottom: 0.25em;
-    padding-bottom: 0.25em;
-    font-size: 2em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 1em;
     color: #fff;
     font-weight: 500;
     text-shadow: 0 0 10px rgba(0,0,0,0.25);
@@ -131,8 +131,8 @@ a:hover {
     transform: translate(-50%, 50%);
 }
 #loading-image{
-    max-height: 10vw;
-    max-width: 10vw;
+    max-height: 5vw;
+    max-width: 5vw;
 }
 
 /*Logo*/

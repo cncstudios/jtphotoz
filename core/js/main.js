@@ -12,52 +12,6 @@ document.onreadystatechange = function () {
   }
 }
 
-window.onbeforeunload = function(){ window.scrollTo(0,0); }
-
-//Smooth Scrolling//
-if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-window.onmousewheel = document.onmousewheel = wheel;
-
-function wheel(event) {
-    var delta = 0;
-    if (event.wheelDelta) delta = event.wheelDelta / 60;
-    else if (event.detail) delta = -event.detail / 60;
-
-    handle(delta);
-    if (event.preventDefault) event.preventDefault();
-    event.returnValue = false;
-}
-var goUp = true;
-var end = null;
-var interval = null;
-
-function handle(delta) {
-	var animationInterval = 20;
-  var scrollSpeed = 20;
-
-	if (end == null) {
-  	end = $(window).scrollTop();
-  }
-  end -= 20 * delta;
-  goUp = delta > 0;
-
-  if (interval == null) {
-    interval = setInterval(function () {
-      var scrollTop = $(window).scrollTop();
-      var step = Math.round((end - scrollTop) / scrollSpeed);
-      if (scrollTop <= 0 || 
-          scrollTop >= $(window).prop("scrollHeight") - $(window).height() ||
-          goUp && step > -1 || 
-          !goUp && step < 1 ) {
-        clearInterval(interval);
-        interval = null;
-        end = null;
-      }
-      $(window).scrollTop(scrollTop + step );
-    }, animationInterval);
-  }
-}
-
 $(document).ready(function (){
     var viewportHeight = $(window).outerHeight();
     var viewportWidth = $(window).outerWidth();
@@ -85,6 +39,21 @@ $(document).ready(function (){
         swipeToSlide: false,
         touchMove: false,
         waitForAnimate: false,
+    });
+    //Smooth Scrolling//
+    $("html").easeScroll({
+        frameRate: 60,
+        animationTime: 1500,
+        stepSize: 60,
+        pulseAlgorithm: 1,
+        pulseScale: 8,
+        pulseNormalize: 1,
+        accelerationDelta: 1,
+        accelerationMax: 1,
+        keyboardSupport: true,
+        arrowScroll: 50,
+        touchpadSupport: true,
+        fixedBackground: true
     });
     //Nav Control//
     $(".down").click(function (){

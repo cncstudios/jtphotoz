@@ -9,6 +9,7 @@ document.onreadystatechange = function () {
           document.getElementById('load').style.cssText="opacity:0;z-index:-2;";
           document.getElementById('body-container').style.opacity="1";
       },2000);
+      setTimeout(function() { alert("NOTE: This project has been closed in development. It will no longer receive updates.\n\nC&C Studios\n20181022T121500-0700"); }, 3000);
   }
 }
 
